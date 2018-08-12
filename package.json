@@ -1,5 +1,5 @@
 {
-  "name": "client-storage-test",
+  "name": "ngx-client-storage",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
