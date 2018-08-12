@@ -37,7 +37,8 @@ export interface IAuthServiceSnapshot {
 export class AuthService {
     snapshot: Partial<IAuthServiceSnapshot> = {
         userDetails: {
-
+            tenantId: "fake-tenant",
+            subject: "fake-subject"
         }
     } as IAuthServiceSnapshot;
 }

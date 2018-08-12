@@ -1,27 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<h1>Testing client storage</h1>
-<form>
-  key:
-  <input type="text" [(ngModel)]="keyMyFeature" name="keyMyFeature" /> value:
-  <input type="text" [(ngModel)]="valueMyFeature" name="valueMyFeature" />&nbsp;
-  <button (click)="saveMyFeature()">Save</button>&nbsp;
-  <button (click)="clearMyFeature()">Clear</button>
-</form>
+<app-storage-input feature="myFeature"></app-storage-input>
+<app-storage-input feature="myFeature2"></app-storage-input>
 
-<form>
-  key:
-  <input type="text" [(ngModel)]="keyMyFeature2" name="keyMyFeature2" /> value:
-  <input type="text" [(ngModel)]="valueMyFeature2" name="valueMyFeature2" />&nbsp;
-  <button (click)="saveMyFeature2()">Save</button>&nbsp;
-  <button (click)="clearMyFeature2()">Clear</button>
-</form>
-
-<h1>All (myFeature Session based)</h1>
-<ul>
-  <li *ngFor="let item of allMyFeature()">{{ item.key }} ({{ item.scopedKey }}) => {{ item.value }}</li>
-</ul>
-
-<h1>All (myFeature2 LocalStorage based)</h1>
-<ul>
-  <li *ngFor="let item of allMyFeature2()">{{ item.key }} ({{ item.scopedKey }}) => {{ item.value }}</li>
-</ul>
+<div *ngFor="let client of clients()">
+  <h1>Feature {{client.scopingService.feature}} Type: {{client.storageType}} Scope: {{client.scopingService.scope}}</h1>
+  <ul>
+    <li *ngFor="let item of client.getAll()">{{ item.key }} ({{ item.scopedKey }}) => {{ item.value }}</li>
+  </ul>
+</div>

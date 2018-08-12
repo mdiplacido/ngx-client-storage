@@ -7,12 +7,14 @@ import { ClientStorageModule, StorageScope, StorageType } from "./services/clien
 import { WINDOW_SERVICE } from "./services/window.service";
 import { LoggingService } from "./services/logging.service";
 import { AuthService } from "./services/auth.service";
+import { StorageInputComponent } from "./storage-input/storage-input.component";
 
 export function getWindow() { return window; }
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StorageInputComponent
   ],
   imports: [
     BrowserModule,

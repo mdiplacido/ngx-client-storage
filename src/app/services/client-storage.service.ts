@@ -90,8 +90,8 @@ export class ClientStorageManager {
         return service;
     }
 
-    features(): IterableIterator<string> {
-        return this.featureToClientStorageServiceMap.keys();
+    clients(): IterableIterator<IClientStorage> {
+        return this.featureToClientStorageServiceMap.values();
     }
 }
 
@@ -145,8 +145,8 @@ export class ClientStore {
         return this.manager.find(feature);
     }
 
-    features(): IterableIterator<string> {
-        return this.manager.features();
+    clients(): IterableIterator<IClientStorage> {
+        return this.manager.clients();
     }
 }
 
