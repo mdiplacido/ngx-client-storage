@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit } from "@angular/core";
-
-import { ClientStore, IClientStorage } from "./services/client-storage.service";
+import { ClientStore, IClientStorage } from "./shared/services/client-storage.service";
 
 @Component({
   selector: "app-root",

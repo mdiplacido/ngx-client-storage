@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-
-import { ClientStore } from "./../services/client-storage.service";
+import { ClientStore } from "../services/client-storage.service";
 
 @Component({
   selector: "app-storage-input",

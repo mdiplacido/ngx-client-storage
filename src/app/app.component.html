@@ -1,6 +1,13 @@
 <router-outlet></router-outlet>
 
-<a [routerLink]="'test'">Load test route</a>
+<ul>
+  <li>
+    <a [routerLink]="'test'">Load test route</a>
+  </li>
+  <li>
+    <a [routerLink]="['/lazy/page1']">Lazy Page1</a>
+  </li>
+</ul>
 
 <!--The content below is only a placeholder and can be replaced.-->
 <app-storage-input feature="rootFeature"></app-storage-input>
