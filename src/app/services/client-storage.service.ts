@@ -68,20 +68,20 @@ export class ClientStorageModule {
 
 @Injectable()
 export class ClientStorageManager {
-    private readonly featureToClientStorageServiceMap = new Map<string, IClientStorage>();
+    private readonly featureToClientStorageServiceMap: Dictionary<IClientStorage> = {};
 
     addFeatures(features: { feature: string, service: IClientStorage }[]): void {
         features.forEach(config => {
-            this.featureToClientStorageServiceMap.set(config.feature, config.service);
+            this.featureToClientStorageServiceMap[config.feature] = config.service;
         });
     }
 
     removeFeatures(features: string[]): void {
-        features.forEach(feature => this.featureToClientStorageServiceMap.delete(feature));
+        features.forEach(feature => delete this.featureToClientStorageServiceMap[feature]);
     }
 
     find(feature: string): IClientStorage {
-        const service = this.featureToClientStorageServiceMap.get(feature);
+        const service = this.featureToClientStorageServiceMap[feature];
 
         if (!service) {
             throw new Error(`No ClientStorage registered for feature "${feature}"`);
@@ -90,8 +90,8 @@ export class ClientStorageManager {
         return service;
     }
 
-    clients(): IterableIterator<IClientStorage> {
-        return this.featureToClientStorageServiceMap.values();
+    clients(): IClientStorage[] {
+        return _.values(this.featureToClientStorageServiceMap);
     }
 }
 
@@ -145,7 +145,7 @@ export class ClientStore {
         return this.manager.find(feature);
     }
 
-    clients(): IterableIterator<IClientStorage> {
+    clients(): IClientStorage[] {
         return this.manager.clients();
     }
 }

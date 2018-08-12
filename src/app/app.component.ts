@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, AfterViewInit } from "@angular/core";
 
 import { ClientStore, IClientStorage } from "./services/client-storage.service";
 
@@ -10,10 +10,9 @@ import { ClientStore, IClientStorage } from "./services/client-storage.service";
 export class AppComponent {
   title = "app";
 
-  constructor(private readonly clientStorage: ClientStore) {
-  }
+  clients: () => IClientStorage[];
 
-  clients() {
-    return this.clientStorage.clients();
+  constructor(private readonly clientStorage: ClientStore) {
+    this.clients = () => this.clientStorage.clients();
   }
 }
