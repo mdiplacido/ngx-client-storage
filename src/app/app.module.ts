@@ -8,20 +8,26 @@ import { WINDOW_SERVICE } from "./services/window.service";
 import { LoggingService } from "./services/logging.service";
 import { AuthService } from "./services/auth.service";
 import { StorageInputComponent } from "./storage-input/storage-input.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { RootTestComponentComponent } from './root-test-component/root-test-component.component';
+import { RouterModule } from "@angular/router";
 
 export function getWindow() { return window; }
 
 @NgModule({
   declarations: [
     AppComponent,
-    StorageInputComponent
+    StorageInputComponent,
+    RootTestComponentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ClientStorageModule.forRoot(),
-    ClientStorageModule.forFeature("myFeature", StorageType.Session, StorageScope.User),
-    ClientStorageModule.forFeature("myFeature2", StorageType.Local, StorageScope.User)
+    ClientStorageModule.forFeature("rootFeature", StorageType.Session, StorageScope.User),
+    ClientStorageModule.forFeature("rootFeature2", StorageType.Local, StorageScope.User),
+    ClientStorageModule.forFeature("testFeature", StorageType.Local, StorageScope.User),
+    AppRoutingModule
   ],
   providers: [
     LoggingService,

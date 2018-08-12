@@ -1,9 +1,13 @@
+<router-outlet></router-outlet>
+
+<a [routerLink]="'test'">Load test route</a>
+
 <!--The content below is only a placeholder and can be replaced.-->
-<app-storage-input feature="myFeature"></app-storage-input>
-<app-storage-input feature="myFeature2"></app-storage-input>
+<app-storage-input feature="rootFeature"></app-storage-input>
+<app-storage-input feature="rootFeature2"></app-storage-input>
 
 <div *ngFor="let client of clients()">
-  <h1>Feature {{client.scopingService.feature}} Type: {{client.storageType}} Scope: {{client.scopingService.scope}}</h1>
+  <h1>Feature "{{client.scopingService.feature}}" Type: {{client.storageType}} Scope: {{client.scopingService.scope}}</h1>
   <ul>
     <li *ngFor="let item of client.getAll()">{{ item.key }} ({{ item.scopedKey }}) => {{ item.value }}</li>
   </ul>
